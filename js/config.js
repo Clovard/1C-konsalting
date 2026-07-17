@@ -4,17 +4,17 @@
  */
 window.SITE_CONFIG = {
   telegram: {
-    username: "YOUR_TELEGRAM",
-    url: "https://t.me/YOUR_TELEGRAM",
+    username: "@clovard",
+    url: "https://t.me/clovard",
   },
   max: {
     label: "Написать в MAX",
-    url: "https://max.ru/YOUR_MAX",
+    url: "https://max.ru/u/f9LHodD0cOLAi3MOiWXSrwiYzJiSAfmnUBFeWSfjPT5F11n0DhuEOHf8mZA",
   },
-  email: "your@email.ru",
+  email: "andrew_sarafonov@vk.com,
   phone: {
-    display: "+7 (900) 123-45-67",
-    tel: "+79001234567",
+    display: "+7 (993)010-74-03",
+    tel: "+79930107403",
   },
   location: {
     city: "г. Новосибирск",
