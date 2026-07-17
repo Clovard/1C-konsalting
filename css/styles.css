@@ -225,8 +225,8 @@ img, svg {
   top: var(--header-h);
   z-index: 150;
   height: var(--marquee-h);
-  background: transparent;
-  border-bottom: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(110, 150, 184, 0.15);
   overflow: hidden;
   display: flex;
   align-items: center;

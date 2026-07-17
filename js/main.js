@@ -180,6 +180,8 @@
     const topics = window.MARQUEE_TOPICS;
     if (!marqueeTrack || !topics?.length) return;
 
+    marqueeTrack.innerHTML = "";
+
     const createSet = () => {
       const frag = document.createDocumentFragment();
       topics.forEach((topic, index) => {
