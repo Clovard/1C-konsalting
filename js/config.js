@@ -4,14 +4,14 @@
  */
 window.SITE_CONFIG = {
   telegram: {
-    username: "@clovard",
+    username: "clovard",
     url: "https://t.me/clovard",
   },
   max: {
     label: "Написать в MAX",
     url: "https://max.ru/u/f9LHodD0cOLAi3MOiWXSrwiYzJiSAfmnUBFeWSfjPT5F11n0DhuEOHf8mZA",
   },
-  email: "andrew_sarafonov@vk.com,
+  email: "andrew_sarafonov@vk.com",
   phone: {
     display: "+7 (993)010-74-03",
     tel: "+79930107403",
