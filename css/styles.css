@@ -548,6 +548,131 @@ img, svg {
   line-height: 1.5;
 }
 
+/* Products — авторские дополнения к интеграции 1С ↔ Bitrix24 */
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem 1.35rem 1.35rem;
+  background: var(--bg-main);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.product-card:hover {
+  border-color: rgba(110, 150, 184, 0.35);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.product-card__badge {
+  align-self: flex-start;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  background: rgba(217, 119, 6, 0.12);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  border-radius: 999px;
+}
+
+.product-card__subtitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--sky-muted-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.product-card__title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.product-card__desc {
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+.product-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.product-card__features li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.product-card__features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sky-muted);
+}
+
+.product-card__unique {
+  padding: 0.75rem 0.85rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  background: rgba(110, 150, 184, 0.08);
+  border-left: 3px solid var(--sky-muted);
+  border-radius: 0 8px 8px 0;
+}
+
+.product-card .btn {
+  margin-top: auto;
+}
+
+.products__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  margin-top: 0.5rem;
+}
+
+.products__cta h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.products__cta p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  max-width: 48ch;
+}
+
 /* Location / Yandex map */
 .location__grid {
   display: grid;
@@ -1374,6 +1499,15 @@ img, svg {
 
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products__cta {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .steps {

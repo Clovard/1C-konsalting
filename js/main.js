@@ -4,6 +4,7 @@
   if (cfg) {
     initAbout(cfg.about);
     initLocation(cfg.location);
+    initProducts(cfg.products);
     const tg = document.querySelector('[data-contact="telegram"]');
     if (tg && cfg.telegram) {
       tg.href = cfg.telegram.url;
@@ -82,6 +83,56 @@
     }
   }
 
+  function initProducts(products) {
+    if (!products) return;
+
+    const titleEl = document.getElementById("productsTitle");
+    const leadEl = document.getElementById("productsLead");
+    const noteEl = document.getElementById("productsNote");
+    const gridEl = document.getElementById("productsGrid");
+    const customBtn = document.getElementById("productsCustomOrder");
+
+    if (titleEl && products.title) titleEl.textContent = products.title;
+    if (leadEl) leadEl.textContent = products.lead || "";
+    if (noteEl) noteEl.textContent = products.note || "";
+
+    if (gridEl && products.items?.length) {
+      gridEl.innerHTML = products.items
+        .map(
+          (item) => `
+          <article class="product-card reveal" data-product-id="${item.id}">
+            ${item.badge ? `<span class="product-card__badge">${item.badge}</span>` : ""}
+            ${item.subtitle ? `<p class="product-card__subtitle">${item.subtitle}</p>` : ""}
+            <h3 class="product-card__title">${item.title}</h3>
+            <p class="product-card__desc">${item.description}</p>
+            ${
+              item.features?.length
+                ? `<ul class="product-card__features">${item.features.map((f) => `<li>${f}</li>`).join("")}</ul>`
+                : ""
+            }
+            ${item.unique ? `<p class="product-card__unique">${item.unique}</p>` : ""}
+            <button type="button" class="btn btn--full" data-order-product="${item.id}">Уточнить цену</button>
+          </article>`
+        )
+        .join("");
+
+      gridEl.querySelectorAll("[data-order-product]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const product = products.items.find((p) => p.id === btn.dataset.orderProduct);
+          openOrderModal(product);
+        });
+      });
+    }
+
+    customBtn?.addEventListener("click", () => {
+      openModal({
+        title: "Индивидуальная разработка",
+        message: products.customOrderMessage || "",
+        resetForm: true,
+      });
+    });
+  }
+
   const header = document.querySelector(".header");
   const burger = document.querySelector(".burger");
   const modal = document.getElementById("formModal");
@@ -93,8 +144,12 @@
   const marqueeBar = document.getElementById("marqueeBar");
   const form = document.getElementById("feedback-form");
   const formStatus = document.getElementById("form-status");
+  const modalTitle = document.getElementById("modalTitle");
+  const messageField = document.getElementById("message");
   const yearEl = document.getElementById("year");
   const typingEl = document.getElementById("typingText");
+  const DEFAULT_MODAL_TITLE = "Оставить заявку";
+  let activeOrderProduct = null;
 
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -130,23 +185,44 @@
     document.body.style.overflow = "hidden";
   }
 
-  function openModal() {
+  function openModal({ title, message, resetForm = true, product = null } = {}) {
     closeInfoPopup();
+    activeOrderProduct = product || null;
+    if (modalTitle) modalTitle.textContent = title || DEFAULT_MODAL_TITLE;
+    if (resetForm) form?.reset();
+    if (messageField && message) messageField.value = message;
     modal?.classList.add("is-open");
     modal?.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
   }
 
+  function openOrderModal(product) {
+    if (!product) {
+      openModal();
+      return;
+    }
+
+    openModal({
+      title: `Заказ: ${product.title}`,
+      message: `Интересует: ${product.title}\n\nХочу уточнить стоимость и возможность внедрения под нашу базу.`,
+      resetForm: true,
+      product,
+    });
+  }
+
   function closeModal() {
     modal?.classList.remove("is-open");
     modal?.setAttribute("aria-hidden", "true");
+    activeOrderProduct = null;
+    if (modalTitle) modalTitle.textContent = DEFAULT_MODAL_TITLE;
+    form?.reset();
     if (!infoPopup?.classList.contains("is-open")) {
       document.body.style.overflow = "";
     }
   }
 
   document.querySelectorAll("[data-open-modal]").forEach((el) => {
-    el.addEventListener("click", openModal);
+    el.addEventListener("click", () => openModal());
   });
 
   document.querySelectorAll("[data-close-modal]").forEach((el) => {
@@ -311,7 +387,7 @@
   }
 
   const revealEls = document.querySelectorAll(
-    ".card, .step, .quote, .cta-block, .hero-panel, .hero__content, .about__intro, .about-card, .location__grid"
+    ".card, .step, .quote, .cta-block, .hero-panel, .hero__content, .about__intro, .about-card, .location__grid, .product-card, .products__cta"
   );
   revealEls.forEach((el) => el.classList.add("reveal"));
 
@@ -333,6 +409,9 @@
 
   observeReveal();
 
+  document.querySelectorAll(".product-card.reveal:not(.is-visible)").forEach((el) => observer.observe(el));
+  document.querySelectorAll(".products__cta.reveal:not(.is-visible)").forEach((el) => observer.observe(el));
+
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
     formStatus.className = "form-status";
@@ -351,7 +430,10 @@
     const emailLink = document.querySelector('[data-contact="email"]');
     const targetEmail = emailLink?.href.replace("mailto:", "") || cfg?.email || "your@email.ru";
 
-    const subject = encodeURIComponent("Заявка с сайта 1С IT-консалтинг");
+    const subjectText = activeOrderProduct
+      ? `Заказ: ${activeOrderProduct.title} — 1С IT-консалтинг`
+      : "Заявка с сайта 1С IT-консалтинг";
+    const subject = encodeURIComponent(subjectText);
     const body = encodeURIComponent(`Имя: ${name}\nКонтакт: ${contact}\n\n${message}`);
 
     window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
