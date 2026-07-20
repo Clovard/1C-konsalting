@@ -249,13 +249,40 @@
     <section class="section section--alt" id="products">
       <div class="container">
         <span class="section-label">Эксклюзив</span>
-        <h2 class="section-title" id="productsTitle">Авторские дополнения</h2>
-        <p class="section-desc" id="productsLead"></p>
-        <div class="products__grid" id="productsGrid"></div>
+        <h2 class="section-title" id="productsTitle">Авторские дополнения к интеграции 1С и Bitrix24</h2>
+        <p class="section-desc" id="productsLead">Личные разработки к модулю обмена 1С ↔ Bitrix24 — функционал, которого нет в типовой поставке. Готов адаптировать под вашу конфигурацию или сделать индивидуальное решение.</p>
+        <div class="products__grid" id="productsGrid">
+          <article class="product-card reveal" data-product-id="b24-kp-formirovanie-kp">
+            <span class="product-card__badge">Эксклюзив</span>
+            <p class="product-card__subtitle">УТ 11 · Битрикс24КомплексУТ</p>
+            <h3 class="product-card__title">Б24КП — Сформировать КП + Bitrix24</h3>
+            <p class="product-card__desc">Расширение для «1С:Управление торговлей 11»: на форме «Заказ клиента» появляется кнопка «Сформировать КП». Одним нажатием формируется PDF коммерческого предложения и отправляется в таймлайн сделки Bitrix24.</p>
+            <ul class="product-card__features">
+              <li>PDF КП из заказа — в таймлайн существующей сделки (если есть ИНН и связь)</li>
+              <li>Без ИНН — новая сделка в заданной воронке CRM через вебхук</li>
+              <li>При ошибке B24 PDF всё равно формируется и показывается в 1С</li>
+            </ul>
+            <p class="product-card__unique">Авторская логика «КП из заказа» с ветвлением по ИНН — такого нет в типовом модуле Битрикс24КомплексУТ.</p>
+            <button type="button" class="btn btn--full" data-order-product="b24-kp-formirovanie-kp" data-order-title="Б24КП — Сформировать КП + Bitrix24">Уточнить цену</button>
+          </article>
+          <article class="product-card reveal" data-product-id="b24-ae-autoexport-scheta">
+            <span class="product-card__badge">Эксклюзив</span>
+            <p class="product-card__subtitle">УТ 11.5 · Битрикс24КомплексУТ</p>
+            <h3 class="product-card__title">Б24АЭ — Автоэкспорт счёта в таймлайн Bitrix24</h3>
+            <p class="product-card__desc">При печати «Счёта на оплату клиенту» PDF автоматически уходит в таймлайн связанной сделки Bitrix24 — без кнопки «В таймлайн». Выгрузка сразу после формирования печатной формы.</p>
+            <ul class="product-card__features">
+              <li>Автовыгрузка PDF счёта в таймлайн сделки B24</li>
+              <li>Поиск связи через заказ-основание, если счёт не привязан напрямую</li>
+              <li>Повторные попытки до готовности PDF и уведомления об ошибках</li>
+            </ul>
+            <p class="product-card__unique">Убирает ручной шаг менеджера — в стандартной интеграции счёт в таймлайн отправляется только по кнопке.</p>
+            <button type="button" class="btn btn--full" data-order-product="b24-ae-autoexport-scheta" data-order-title="Б24АЭ — Автоэкспорт счёта в таймлайн Bitrix24">Уточнить цену</button>
+          </article>
+        </div>
         <div class="products__cta card reveal">
           <div>
             <h3>Нужно что-то индивидуальное?</h3>
-            <p id="productsNote"></p>
+            <p id="productsNote">Опишите задачу — уточню стоимость, сроки и возможность внедрения под вашу базу.</p>
           </div>
           <button type="button" class="btn" id="productsCustomOrder">Обсудить разработку</button>
         </div>

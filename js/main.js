@@ -96,7 +96,7 @@
     if (leadEl) leadEl.textContent = products.lead || "";
     if (noteEl) noteEl.textContent = products.note || "";
 
-    if (gridEl && products.items?.length) {
+    if (gridEl && products.items && products.items.length) {
       gridEl.innerHTML = products.items
         .map(
           (item) => `
@@ -106,22 +106,15 @@
             <h3 class="product-card__title">${item.title}</h3>
             <p class="product-card__desc">${item.description}</p>
             ${
-              item.features?.length
+              item.features && item.features.length
                 ? `<ul class="product-card__features">${item.features.map((f) => `<li>${f}</li>`).join("")}</ul>`
                 : ""
             }
             ${item.unique ? `<p class="product-card__unique">${item.unique}</p>` : ""}
-            <button type="button" class="btn btn--full" data-order-product="${item.id}">Уточнить цену</button>
+            <button type="button" class="btn btn--full" data-order-product="${item.id}" data-order-title="${item.title}">Уточнить цену</button>
           </article>`
         )
         .join("");
-
-      gridEl.querySelectorAll("[data-order-product]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const product = products.items.find((p) => p.id === btn.dataset.orderProduct);
-          openOrderModal(product);
-        });
-      });
     }
 
     customBtn?.addEventListener("click", () => {
@@ -202,13 +195,30 @@
       return;
     }
 
+    const title = product.title || product;
     openModal({
-      title: `Заказ: ${product.title}`,
-      message: `Интересует: ${product.title}\n\nХочу уточнить стоимость и возможность внедрения под нашу базу.`,
+      title: `Заказ: ${title}`,
+      message: `Интересует: ${title}\n\nХочу уточнить стоимость и возможность внедрения под нашу базу.`,
       resetForm: true,
-      product,
+      product: typeof product === "object" ? product : { title },
     });
   }
+
+  document.getElementById("productsGrid")?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-order-product]");
+    if (!btn) return;
+
+    const items = cfg && cfg.products && cfg.products.items;
+    const product = items && items.find((p) => p.id === btn.dataset.orderProduct);
+    if (product) {
+      openOrderModal(product);
+      return;
+    }
+
+    if (btn.dataset.orderTitle) {
+      openOrderModal({ title: btn.dataset.orderTitle, id: btn.dataset.orderProduct });
+    }
+  });
 
   function closeModal() {
     modal?.classList.remove("is-open");
@@ -410,7 +420,6 @@
   observeReveal();
 
   document.querySelectorAll(".product-card.reveal:not(.is-visible)").forEach((el) => observer.observe(el));
-  document.querySelectorAll(".products__cta.reveal:not(.is-visible)").forEach((el) => observer.observe(el));
 
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
