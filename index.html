@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=2">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <script src="js/seo-config.js"></script>
   <script src="js/seo-schema.js"></script>
@@ -138,20 +138,40 @@
 
     <section class="section" id="directions">
       <div class="container">
+        <span class="section-label">Услуги</span>
+        <h2 class="section-title">Два направления — с чего начать</h2>
         <div class="directions" id="directionsGrid">
-          <a class="direction-card reveal direction--1c" href="1c.html">
-            <span class="direction-card__label">Направление 1</span>
-            <h3 class="direction-card__title">1С IT-консалтинг</h3>
-            <p class="direction-card__subtitle">Разработка, внедрение и поддержка</p>
+          <a class="direction-card card reveal direction--1c" href="1c.html">
+            <div class="direction-card__head">
+              <span class="direction-card__icon" aria-hidden="true">1С</span>
+              <div class="direction-card__meta">
+                <h3 class="direction-card__title">1С IT-консалтинг</h3>
+                <p class="direction-card__subtitle">Разработка, внедрение и поддержка</p>
+              </div>
+            </div>
             <p class="direction-card__text">Доработки конфигураций, отчёты, интеграции, сопровождение УТ, ERP, БП, ЗУП.</p>
-            <span class="direction-card__cta">Перейти →</span>
+            <ul class="direction-card__tags">
+              <li>1С:Предприятие</li>
+              <li>УТ · ERP</li>
+              <li>Интеграции</li>
+            </ul>
+            <span class="direction-card__cta">Подробнее →</span>
           </a>
-          <a class="direction-card reveal direction--auto" href="automation.html">
-            <span class="direction-card__label">Направление 2</span>
-            <h3 class="direction-card__title">Автоматизация и AI</h3>
-            <p class="direction-card__subtitle">Bitrix24 · Процессы · AI-агенты</p>
+          <a class="direction-card card reveal direction--auto" href="automation.html">
+            <div class="direction-card__head">
+              <span class="direction-card__icon" aria-hidden="true">B24</span>
+              <div class="direction-card__meta">
+                <h3 class="direction-card__title">Автоматизация и AI</h3>
+                <p class="direction-card__subtitle">Bitrix24 · Процессы · AI-агенты</p>
+              </div>
+            </div>
             <p class="direction-card__text">CRM, роботы, бизнес-процессы, AI-агенты и связка Bitrix24 с 1С.</p>
-            <span class="direction-card__cta">Перейти →</span>
+            <ul class="direction-card__tags">
+              <li>Bitrix24</li>
+              <li>AI-агенты</li>
+              <li>CRM</li>
+            </ul>
+            <span class="direction-card__cta">Подробнее →</span>
           </a>
         </div>
       </div>

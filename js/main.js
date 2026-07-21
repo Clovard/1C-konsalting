@@ -1,6 +1,9 @@
 (function () {
+  document.documentElement.classList.add("js");
+
   const cfg = window.SITE_CONFIG;
   const page = document.body.dataset.page || "1c";
+  let revealObserver = null;
 
   if (cfg) {
     initContacts(cfg);
@@ -73,20 +76,25 @@
       gridEl.innerHTML = hub.directions
         .map(
           (dir) => `
-          <a class="direction-card reveal ${dir.theme || ""}" href="${dir.href}">
-            <span class="direction-card__label">${dir.label}</span>
-            <h3 class="direction-card__title">${dir.title}</h3>
-            <p class="direction-card__subtitle">${dir.subtitle || ""}</p>
+          <a class="direction-card card reveal ${dir.theme || ""}" href="${dir.href}">
+            <div class="direction-card__head">
+              <span class="direction-card__icon" aria-hidden="true">${dir.icon || "→"}</span>
+              <div class="direction-card__meta">
+                <h3 class="direction-card__title">${dir.title}</h3>
+                <p class="direction-card__subtitle">${dir.subtitle || ""}</p>
+              </div>
+            </div>
             <p class="direction-card__text">${dir.text}</p>
             ${
               dir.tags && dir.tags.length
                 ? `<ul class="direction-card__tags">${dir.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>`
                 : ""
             }
-            <span class="direction-card__cta">Перейти →</span>
+            <span class="direction-card__cta">Подробнее →</span>
           </a>`
         )
         .join("");
+      observeRevealTargets();
     }
   }
 
@@ -900,25 +908,26 @@
   );
   revealEls.forEach((el) => el.classList.add("reveal"));
 
-  const observer = new IntersectionObserver(
+  revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
   );
 
-  function observeReveal() {
-    document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => observer.observe(el));
+  function observeRevealTargets() {
+    if (!revealObserver) return;
+    document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => revealObserver.observe(el));
   }
 
-  observeReveal();
+  observeRevealTargets();
 
-  document.querySelectorAll(".case-card.reveal:not(.is-visible)").forEach((el) => observer.observe(el));
+  document.querySelectorAll(".case-card.reveal:not(.is-visible)").forEach((el) => revealObserver.observe(el));
 
   form?.addEventListener("submit", (e) => {
     e.preventDefault();

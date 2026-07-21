@@ -62,7 +62,7 @@ window.SITE_CONFIG = {
       {
         id: "1c",
         href: "1c.html",
-        label: "Направление 1",
+        icon: "1С",
         theme: "direction--1c",
         title: "1С IT-консалтинг",
         subtitle: "Разработка, внедрение и поддержка",
@@ -72,7 +72,7 @@ window.SITE_CONFIG = {
       {
         id: "automation",
         href: "automation.html",
-        label: "Направление 2",
+        icon: "B24",
         theme: "direction--auto",
         title: "Автоматизация и AI",
         subtitle: "Bitrix24 · Процессы · AI-агенты",
