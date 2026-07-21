@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Блог IT-консалтинга: интеграция 1С и Bitrix24, программист 1С, настройка CRM, AI и n8n. 15 статей для бизнеса в Новосибирске и по России — практика без воды.">
+  <meta name="keywords" content="блог 1с, bitrix24, интеграция 1с bitrix24, автоматизация 1с, crm bitrix24, n8n, ai агент, эдо 1с">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://1c-konsalting.ru/blog.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="IT-консалтинг">
+  <meta property="og:title" content="Блог — 1С, Bitrix24 и автоматизация">
+  <meta property="og:description" content="Практические материалы об интеграции 1С и Bitrix24, CRM и автоматизации бизнес-процессов.">
+  <meta property="og:url" content="https://1c-konsalting.ru/blog.html">
+  <title>Блог — 1С, Bitrix24 и автоматизация | IT-консалтинг</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <script type="application/ld+json" id="blogSchema">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Блог IT-консалтинга",
+    "description": "Статьи об 1С, Bitrix24, интеграциях и автоматизации",
+    "url": "https://1c-konsalting.ru/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IT-консалтинг",
+      "url": "https://1c-konsalting.ru"
+    }
+  }
+  </script>
+</head>
+<body data-page="blog">
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="На главную">
+        <img class="logo__mark" src="assets/logo.svg" width="40" height="40" alt="">
+        <span class="logo__wordmark">
+          <span class="logo__name">IT <em>консалтинг</em></span>
+          <span class="logo__tagline">Блог</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="1c.html" class="nav-link">1С</a>
+        <a href="automation.html" class="nav-link">Автоматизация</a>
+        <a href="cases.html" class="nav-link">Кейсы</a>
+        <a href="blog.html" class="nav-link nav-link--active">Блог</a>
+        <a href="index.html#contact" class="nav-link">Контакты</a>
+        <button type="button" class="nav-link nav-link--accent" data-open-modal>Заявка</button>
+      </nav>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero page-hero--blog">
+      <div class="container page-hero__inner">
+        <span class="section-label">Полезные материалы</span>
+        <h1 class="page-hero__title" id="blogHeroTitle">Блог об 1С, Bitrix24 и автоматизации</h1>
+        <p class="page-hero__lead" id="blogHeroLead">Интеграция 1С и Bitrix24, настройка CRM, AI-агенты и n8n — материалы для собственников и IT-специалистов. Новосибирск и удалённая работа по России.</p>
+      </div>
+    </section>
+
+    <section class="section" id="blog-list" aria-labelledby="blogListTitle">
+      <div class="container">
+        <h2 class="visually-hidden" id="blogListTitle">Все статьи</h2>
+        <div class="blog-grid" id="blogGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="logo logo--sm" href="index.html" aria-label="На главную">
+        <img class="logo__mark" src="assets/logo.svg" width="32" height="32" alt="">
+        <span class="logo__wordmark">
+          <span class="logo__name">IT <em>консалтинг</em></span>
+        </span>
+      </a>
+      <p>© <span id="year"></span> IT-консалтинг · Новосибирск</p>
+      <nav class="footer-seo" aria-label="Услуги и разделы">
+        <a href="integraciya-1c-bitrix24.html">Интеграция 1С Bitrix24</a>
+        <a href="1c.html">Программист 1С</a>
+        <a href="automation.html">Настройка Bitrix24</a>
+        <a href="cases.html">Кейсы</a>
+        <a href="blog.html">Блог</a>
+      </nav>
+      <a href="#top" class="footer__top">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="formModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content" role="dialog" aria-labelledby="modalTitle">
+      <button type="button" class="modal__close" data-close-modal aria-label="Закрыть">×</button>
+      <div class="modal__head">
+        <div class="modal__icon">✉</div>
+        <h3 id="modalTitle">Оставить заявку</h3>
+        <p>Заполните форму — свяжусь с вами в ближайшее время</p>
+      </div>
+      <form id="feedback-form" novalidate>
+        <div class="field">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Иван" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="contact-field">Телефон или Telegram</label>
+          <input type="text" id="contact-field" name="contact" class="form-input" placeholder="+7 … или @username" required>
+        </div>
+        <div class="field">
+          <label for="message">Комментарий</label>
+          <textarea id="message" name="message" class="form-input" rows="3" placeholder="Кратко опишите задачу" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--full">Отправить</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Кейсы интеграции 1С и Bitrix24: СтройСнаб, AutoStyle Detailing, AI на n8n. Авторские модули Б24КП и Б24АЭ — реальные проекты с результатами.">
+  <meta name="keywords" content="кейсы 1с bitrix24, интеграция 1с bitrix24 пример, модуль б24кп, б24аэ, портфолио 1с">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://1c-konsalting.ru/cases.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Кейсы — интеграция 1С и Bitrix24">
+  <meta property="og:url" content="https://1c-konsalting.ru/cases.html">
+  <title>Кейсы 1С и Bitrix24 — проекты, модули, интеграции | IT-консалтинг</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+</head>
+<body data-page="cases">
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="На главную">
+        <img class="logo__mark" src="assets/logo.svg" width="40" height="40" alt="">
+        <span class="logo__wordmark">
+          <span class="logo__name">Наши <em>кейсы</em></span>
+          <span class="logo__tagline">Готовые решения</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="1c.html" class="nav-link">1С</a>
+        <a href="automation.html" class="nav-link">Автоматизация</a>
+        <a href="cases.html" class="nav-link">Кейсы</a>
+        <a href="blog.html" class="nav-link">Блог</a>
+        <a href="index.html#contact" class="nav-link">Контакты</a>
+        <button type="button" class="nav-link nav-link--accent" data-open-modal>Заявка</button>
+      </nav>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero page-hero--cases">
+      <div class="container page-hero__inner">
+        <span class="section-label">Портфолио</span>
+        <h1 class="page-hero__title" id="casesHeroTitle">Наши кейсы</h1>
+        <p class="page-hero__lead" id="casesHeroLead">Авторские модули и реальные проекты для клиентов — от 1С и Bitrix24 до AI-автоматизации на n8n.</p>
+      </div>
+    </section>
+
+    <section class="section" id="client-cases">
+      <div class="container">
+        <span class="section-label">Реальные проекты</span>
+        <h2 class="section-title" id="clientCasesTitle">Успешные проекты</h2>
+        <p class="section-desc" id="clientCasesLead">Решения, которые уже работают у заказчиков — интеграции, CRM и автоматизация контента.</p>
+        <div class="cases-carousel">
+          <button type="button" class="cases-carousel__nav cases-carousel__nav--prev" aria-label="Предыдущий кейс" disabled>
+            <span aria-hidden="true">←</span>
+          </button>
+          <div class="cases-carousel__viewport" id="clientCasesViewport">
+            <div class="case-studies" id="clientCasesGrid">
+              <article class="case-card reveal is-active" id="case-stroysnab">
+                <button type="button" class="case-card__pick" data-case-id="case-stroysnab" aria-pressed="true">
+                  <div class="case-card__head">
+                    <img class="case-card__logo" src="assets/cases/stroysnab-logo.jpg" alt="СтройСнаб" width="48" height="48" loading="lazy">
+                    <div>
+                      <span class="case-card__badge">Кейс</span>
+                      <h3 class="case-card__title">СтройСнаб</h3>
+                      <p class="case-card__industry">Строительные материалы · Новосибирск</p>
+                    </div>
+                  </div>
+                  <p class="case-card__summary">Комплексный проект: чистка баз, настройка 1С и Bitrix24, интеграция и автоматизация отдела продаж.</p>
+                </button>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="cases-carousel__nav cases-carousel__nav--next" aria-label="Следующий кейс">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <div class="case-detail card reveal" id="clientCaseDetail" aria-live="polite" hidden></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="products">
+      <div class="container">
+        <span class="section-label">Эксклюзив</span>
+        <h2 class="section-title" id="productsTitle">Авторские дополнения к интеграции 1С и Bitrix24</h2>
+        <p class="section-desc" id="productsLead">Личные разработки к модулю обмена 1С ↔ Bitrix24 — функционал, которого нет в типовой поставке. Готов адаптировать под вашу конфигурацию или сделать индивидуальное решение.</p>
+        <div class="cases-carousel">
+          <button type="button" class="cases-carousel__nav cases-carousel__nav--prev" aria-label="Предыдущий модуль" disabled>
+            <span aria-hidden="true">←</span>
+          </button>
+          <div class="cases-carousel__viewport" id="productsViewport">
+            <div class="case-studies case-studies--duo" id="productsGrid">
+              <article class="case-card case-card--module reveal is-active" id="b24-kp-formirovanie-kp">
+                <button type="button" class="case-card__pick case-card__pick--module" data-product-id="b24-kp-formirovanie-kp" aria-pressed="true">
+                  <div class="module-pick__meta">
+                    <span class="product-card__badge">Эксклюзив</span>
+                    <p class="product-card__subtitle product-card__subtitle--sm">УТ 11 · Битрикс24КомплексУТ</p>
+                  </div>
+                  <h3 class="case-card__title">Б24КП — Сформировать КП + Bitrix24</h3>
+                  <p class="case-card__summary">Кнопка на заказе клиента — PDF КП сразу в таймлайн сделки Bitrix24.</p>
+                </button>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="cases-carousel__nav cases-carousel__nav--next" aria-label="Следующий модуль">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <div class="case-detail case-detail--module card reveal" id="productDetail" aria-live="polite" hidden></div>
+      </div>
+    </section>
+
+    <section class="section section--promo" id="custom-dev">
+      <div class="container">
+        <div class="promo-banner card reveal">
+          <div>
+            <h3>Нужно что-то индивидуальное?</h3>
+            <p id="productsNote">Опишите задачу — уточню стоимость, сроки и возможность внедрения под вашу базу.</p>
+          </div>
+          <button type="button" class="btn" id="productsCustomOrder">Обсудить разработку</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="logo logo--sm" href="index.html" aria-label="На главную">
+        <img class="logo__mark" src="assets/logo.svg" width="32" height="32" alt="">
+        <span class="logo__wordmark">
+          <span class="logo__name">Наши <em>кейсы</em></span>
+        </span>
+      </a>
+      <p>© <span id="year"></span> IT-консалтинг · Новосибирск</p>
+      <nav class="footer-seo" aria-label="Услуги и разделы">
+        <a href="integraciya-1c-bitrix24.html">Интеграция 1С Bitrix24</a>
+        <a href="1c.html">Программист 1С</a>
+        <a href="automation.html">Настройка Bitrix24</a>
+        <a href="cases.html">Кейсы</a>
+        <a href="blog.html">Блог</a>
+      </nav>
+      <a href="#top" class="footer__top">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="formModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content" role="dialog" aria-labelledby="modalTitle">
+      <button type="button" class="modal__close" data-close-modal aria-label="Закрыть">×</button>
+      <div class="modal__head">
+        <div class="modal__icon">✉</div>
+        <h3 id="modalTitle">Оставить заявку</h3>
+        <p>Заполните форму — свяжусь с вами в ближайшее время</p>
+      </div>
+      <form id="feedback-form" novalidate>
+        <div class="field">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Иван" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="contact-field">Телефон или Telegram</label>
+          <input type="text" id="contact-field" name="contact" class="form-input" placeholder="+7 … или @username" required>
+        </div>
+        <div class="field">
+          <label for="message">Комментарий</label>
+          <textarea id="message" name="message" class="form-input" rows="3" placeholder="Кратко опишите задачу" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--full">Отправить</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

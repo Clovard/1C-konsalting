@@ -1,0 +1,6 @@
+Host: 1c-konsalting.ru
+
+User-agent: *
+Allow: /
+
+Sitemap: https://1c-konsalting.ru/sitemap.xml
